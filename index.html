@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>G-DEV Club DKUT Hack 2025 - Official Portal</title>
+    <style>
+        body {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, #0a0f1c 0%, #1a1f2e 25%, #0f4c75 50%, #3282b8 75%, #bbe1fa 100%);
+            color: #ffffff;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        .top-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(10, 15, 28, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 1rem 2rem;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .nav-logo-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #3282b8, #0f4c75);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 900;
+            color: white;
+            box-shadow: 0 4px 15px rgba(50, 130, 184, 0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .nav-logo-icon:hover {
+            transform: scale(1.05);
+        }
+
+        .nav-logo-text {
+            font-size: 1.25rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #3282b8, #bbe1fa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 6rem 2rem 2rem;
+        }
+
+        .hero-section {
+            text-align: center;
+            margin-bottom: 4rem;
+            position: relative;
+            padding: 4rem 0;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at center, rgba(50, 130, 184, 0.1) 0%, transparent 70%);
+            border-radius: 2rem;
+        }
+
+        .main-title {
+            font-size: 4rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, #bbe1fa, #3282b8, #0f4c75);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1.5rem;
+            text-shadow: 0 8px 32px rgba(50, 130, 184, 0.3);
+            position: relative;
+            z-index: 1;
+        }
+
+        .subtitle {
+            font-size: 1.4rem;
+            color: #bbe1fa;
+            max-width: 900px;
+            margin: 0 auto;
+            background: rgba(10, 15, 28, 0.7);
+            padding: 2rem;
+            border-radius: 1.5rem;
+            border: 1px solid rgba(50, 130, 184, 0.3);
+            backdrop-filter: blur(10px);
+            position: relative;
+            z-index: 1;
+        }
+
+        .section {
+            background: rgba(10, 15, 28, 0.8);
+            border-radius: 2rem;
+            padding: 3rem;
+            margin-bottom: 3rem;
+            border: 1px solid rgba(50, 130, 184, 0.2);
+            backdrop-filter: blur(20px);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+
+        .section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #3282b8, #0f4c75, #bbe1fa);
+        }
+
+        .section-title {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            color: #bbe1fa;
+        }
+
+        .section-icon {
+            font-size: 2.5rem;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+        }
+
+        .themes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .theme-card {
+            background: linear-gradient(135deg, rgba(50, 130, 184, 0.1), rgba(15, 76, 117, 0.1));
+            padding: 2rem;
+            border-radius: 1.5rem;
+            border: 1px solid rgba(50, 130, 184, 0.3);
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .theme-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(50, 130, 184, 0.3);
+            border-color: rgba(50, 130, 184, 0.6);
+            background: linear-gradient(135deg, rgba(50, 130, 184, 0.2), rgba(15, 76, 117, 0.2));
+        }
+
+        .theme-title {
+            font-weight: 700;
+            color: #bbe1fa;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .deadline-table {
+            background: rgba(10, 15, 28, 0.6);
+            border-radius: 1.5rem;
+            overflow: hidden;
+            margin-top: 2rem;
+            border: 1px solid rgba(50, 130, 184, 0.2);
+        }
+
+        .deadline-row {
+            display: flex;
+            padding: 1.5rem;
+            border-bottom: 1px solid rgba(50, 130, 184, 0.2);
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .deadline-row:last-child {
+            border-bottom: none;
+        }
+
+        .deadline-row:nth-child(odd) {
+            background: rgba(50, 130, 184, 0.05);
+        }
+
+        .deadline-label {
+            font-weight: 700;
+            color: #3282b8;
+            min-width: 250px;
+        }
+
+        .deadline-value {
+            color: #bbe1fa;
+            flex: 1;
+        }
+
+        .highlight {
+            background: linear-gradient(135deg, #bbe1fa, #3282b8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .steps-list {
+            list-style: none;
+            padding: 0;
+            margin-top: 1.5rem;
+        }
+
+        .steps-list li {
+            background: rgba(10, 15, 28, 0.6);
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-radius: 1rem;
+            border-left: 4px solid #3282b8;
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(50, 130, 184, 0.2);
+        }
+
+        .steps-list li:hover {
+            background: rgba(50, 130, 184, 0.1);
+            transform: translateX(15px);
+            border-color: rgba(50, 130, 184, 0.4);
+        }
+
+        .step-icon {
+            font-size: 1.8rem;
+            color: #3282b8;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 4rem;
+            padding: 3rem;
+            background: rgba(10, 15, 28, 0.8);
+            border-radius: 2rem;
+            border: 1px solid rgba(50, 130, 184, 0.3);
+            backdrop-filter: blur(20px);
+        }
+
+        .footer-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #bbe1fa;
+            margin-bottom: 2rem;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-top: 1.5rem;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 1rem 2rem;
+            background: rgba(50, 130, 184, 0.1);
+            border: 1px solid rgba(50, 130, 184, 0.3);
+            border-radius: 2rem;
+            color: #bbe1fa;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            backdrop-filter: blur(10px);
+        }
+
+        .social-link:hover {
+            background: rgba(50, 130, 184, 0.2);
+            border-color: rgba(50, 130, 184, 0.5);
+            color: #ffffff;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(50, 130, 184, 0.3);
+        }
+
+        .social-icon {
+            font-size: 1.25rem;
+        }
+
+        /* Registration Styles */
+        .registration-container {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 3rem;
+            margin-top: 2rem;
+        }
+
+        .form-embed-section {
+            background: rgba(10, 15, 28, 0.6);
+            border-radius: 1.5rem;
+            padding: 2rem;
+            border: 1px solid rgba(50, 130, 184, 0.3);
+        }
+
+        .form-iframe-container {
+            border-radius: 1rem;
+            overflow: hidden;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+
+        .qr-section {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .qr-container {
+            background: rgba(10, 15, 28, 0.6);
+            border-radius: 1.5rem;
+            padding: 2rem;
+            border: 1px solid rgba(50, 130, 184, 0.3);
+            text-align: center;
+        }
+
+        .qr-code-wrapper {
+            display: flex;
+            justify-content: center;
+            margin: 1.5rem 0;
+        }
+
+        .qr-code {
+            width: 200px;
+            height: 200px;
+            border-radius: 1rem;
+            box-shadow: 0 8px 25px rgba(50, 130, 184, 0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .qr-code:hover {
+            transform: scale(1.05);
+        }
+
+        .qr-placeholder {
+            width: 200px;
+            height: 200px;
+            background: linear-gradient(135deg, #3282b8, #0f4c75);
+            border-radius: 1rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            margin: 0 auto;
+        }
+
+        .form-link-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #3282b8, #0f4c75);
+            color: white;
+            text-decoration: none;
+            padding: 1rem 2rem;
+            border-radius: 1rem;
+            font-weight: 600;
+            margin-top: 1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(50, 130, 184, 0.3);
+        }
+
+        .form-link-button:hover {
+            background: linear-gradient(135deg, #0f4c75, #3282b8);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(50, 130, 184, 0.4);
+        }
+
+        .ai-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #3282b8, #0f4c75);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 2rem;
+            font-size: 1rem;
+            font-weight: 700;
+            margin-top: 1.5rem;
+            animation: pulse 2s infinite;
+            box-shadow: 0 4px 15px rgba(50, 130, 184, 0.3);
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.9; transform: scale(1.02); }
+        }
+
+        .network-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.05;
+            z-index: -2;
+            background-image: 
+                radial-gradient(circle at 20% 20%, rgba(50, 130, 184, 0.4) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(15, 76, 117, 0.4) 0%, transparent 50%),
+                radial-gradient(circle at 40% 60%, rgba(187, 225, 250, 0.3) 0%, transparent 50%);
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+            
+            .main-title {
+                font-size: 2.5rem;
+            }
+            
+            .section {
+                padding: 2rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .deadline-row {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.5rem;
+            }
+            
+            .deadline-label {
+                min-width: auto;
+            }
+            
+            .social-links {
+                gap: 1rem;
+            }
+            
+            .social-link {
+                padding: 0.75rem 1.25rem;
+                font-size: 0.9rem;
+            }
+
+            .registration-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .top-nav {
+                padding: 1rem;
+            }
+
+            .nav-logo-text {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="network-bg"></div>
+    
+    <!-- Top Navigation -->
+    <nav class="top-nav">
+        <div class="nav-logo">
+            <div class="nav-logo-icon">G</div>
+            <div class="nav-logo-text">G-DEV DEKUT</div>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <section class="hero-section">
+            <div class="hero-bg"></div>
+            <h1 class="main-title">G-DEV Club DKUT Hack 2025</h1>
+            <div class="subtitle">
+                <strong>🚀 Official Hackathon Portal</strong><br>
+                Join the most innovative geospatial and AI hackathon at DeKUT! Register now and submit your groundbreaking project ideas.
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">
+                <span class="section-icon">📝</span>
+                Registration & Project Submission
+            </h2>
+            <p style="font-size: 1.2rem; margin-bottom: 2rem; color: #bbe1fa;">Ready to participate? Register for the hackathon and submit your innovative project proposal using our official Google Form below.</p>
+            
+            <div class="registration-container">
+                <div class="form-embed-section">
+                    <div class="form-header">
+                        <h3 style="color: #3282b8; font-size: 1.8rem; margin-bottom: 1rem;">🚀 Official Registration Form</h3>
+                        <p style="color: #bbe1fa; margin-bottom: 2rem;">Complete your registration and project submission in one comprehensive form</p>
+                    </div>
+                    
+                    <div class="form-iframe-container">
+                        <iframe 
+                            src="https://docs.google.com/forms/d/e/1FAIpQLSfyZQANXi08Em63YwbRkLCQyc_NLqBRgoZx0XAUFF5fxPEJnw/viewform?embedded=true" 
+                            width="100%" 
+                            height="800" 
+                            frameborder="0" 
+                            marginheight="0" 
+                            marginwidth="0"
+                            style="border-radius: 1rem; background: white;">
+                            Loading…
+                        </iframe>
+                    </div>
+                </div>
+                
+                <div class="qr-section">
+                    <div class="qr-container">
+                        <h3 style="color: #3282b8; font-size: 1.5rem; margin-bottom: 1rem; text-align: center;">📱 Quick Access</h3>
+                        <div class="qr-code-wrapper">
+                            <img src="QR.png" alt="QR Code for Registration Form" class="qr-code" onerror="this.style.display='none'; document.querySelector('.qr-fallback').style.display='block';">
+                            <div class="qr-fallback" style="display: none;">
+                                <div class="qr-placeholder">
+                                    <span style="font-size: 3rem;">📱</span>
+                                    <p>QR Code</p>
+                                    <p style="font-size: 0.9rem;">Scan to access form</p>
+                                </div>
+                            </div>
+                        </div>
+                        <p style="text-align: center; color: #bbe1fa; margin-top: 1rem; font-size: 0.95rem;">
+                            Scan this QR code with your phone to access the registration form quickly
+                        </p>
+                        <div class="direct-link">
+                            <a href="https://docs.google.com/forms/d/e/1FAIpQLSfyZQANXi08Em63YwbRkLCQyc_NLqBRgoZx0XAUFF5fxPEJnw/viewform" 
+                               target="_blank" 
+                               rel="noopener noreferrer" 
+                               class="form-link-button">
+                                🔗 Open Form in New Tab
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">
+                <span class="section-icon">💡</span>
+                Enhanced Hackathon Themes: AI Integration is a Must!
+            </h2>
+            <p style="font-size: 1.1rem; margin-bottom: 1rem;">All four themes for the upcoming hackathon will now mandatorily include an Artificial Intelligence (AI) component.</p>
+            <div class="ai-badge">🤖 AI Integration Required</div>
+            
+            <div class="themes-grid">
+                <div class="theme-card">
+                    <div class="theme-title">🌱 Sustainable Agriculture & Food Security</div>
+                    <p>Leverage AI to optimize crop yields, predict weather patterns, and enhance food distribution systems using geospatial data analysis.</p>
+                </div>
+                <div class="theme-card">
+                    <div class="theme-title">🌍 Environmental Conservation & Climate Resilience</div>
+                    <p>Use AI-powered monitoring systems to track environmental changes and predict climate impacts through satellite imagery and sensor data.</p>
+                </div>
+                <div class="theme-card">
+                    <div class="theme-title">⚡ Renewable Energy & Climate Action</div>
+                    <p>Implement AI algorithms to optimize renewable energy systems and reduce carbon footprints using location-based intelligence.</p>
+                </div>
+                <div class="theme-card">
+                    <div class="theme-title">🗺️ GIS-Based Disaster Risk Reduction</div>
+                    <p>Combine GIS mapping with AI prediction models for early warning systems and disaster preparedness planning.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">
+                <span class="section-icon">🗓️</span>
+                Crucial Deadlines & Preparation
+            </h2>
+            
+            <div class="deadline-table">
+                <div class="deadline-row">
+                    <div class="deadline-label">📋 Project Proposals Due:</div>
+                    <div class="deadline-value"><span class="highlight">ONE WEEK</span> before the hackathon date</div>
+                </div>
+                <div class="deadline-row">
+                    <div class="deadline-label">👥 Hackathon Groups:</div>
+                    <div class="deadline-value">Groups will be formed in advance to facilitate early collaboration</div>
+                </div>
+                <div class="deadline-row">
+                    <div class="deadline-label">💰 Budget:</div>
+                    <div class="deadline-value">A draft budget is being prepared by the Treasurer and will be shared soon</div>
+                </div>
+                <div class="deadline-row">
+                    <div class="deadline-label">📝 Registration Deadline:</div>
+                    <div class="deadline-value">Register using the form above before the deadline</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">
+                <span class="section-icon">🤝</span>
+                Mentorship & Support
+            </h2>
+            <p style="font-size: 1.1rem;">We are excited to announce that we will be inviting <strong style="color: #22d3ee;">Alumni and Industry Experts</strong> to attend and serve as Mentors during the hackathon. This is a fantastic opportunity for learning and networking! 🎓</p>
+            
+            <div style="display: flex; gap: 2rem; margin-top: 2rem; flex-wrap: wrap;">
+                <div style="flex: 1; min-width: 200px; text-align: center; padding: 1rem; background: rgba(34, 197, 94, 0.1); border-radius: 1rem;">
+                    <div style="font-size: 3rem; margin-bottom: 0.5rem;">🎓</div>
+                    <div style="font-weight: 600; color: #22d3ee;">Alumni Mentors</div>
+                    <p style="font-size: 0.9rem; margin-top: 0.5rem;">Experienced graduates ready to guide your projects</p>
+                </div>
+                <div style="flex: 1; min-width: 200px; text-align: center; padding: 1rem; background: rgba(34, 211, 238, 0.1); border-radius: 1rem;">
+                    <div style="font-size: 3rem; margin-bottom: 0.5rem;">⚙️</div>
+                    <div style="font-weight: 600; color: #22d3ee;">Industry Experts</div>
+                    <p style="font-size: 0.9rem; margin-top: 0.5rem;">Professional developers and GIS specialists</p>
+                </div>
+                <div style="flex: 1; min-width: 200px; text-align: center; padding: 1rem; background: rgba(251, 191, 36, 0.1); border-radius: 1rem;">
+                    <div style="font-size: 3rem; margin-bottom: 0.5rem;">🌐</div>
+                    <div style="font-weight: 600; color: #22d3ee;">Networking</div>
+                    <p style="font-size: 0.9rem; margin-top: 0.5rem;">Build connections for your future career</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">
+                <span class="section-icon">✅</span>
+                Your Next Steps
+            </h2>
+            
+            <ul class="steps-list">
+                <li>
+                    <span class="step-icon">📝</span>
+                    <div>
+                        <strong>Register:</strong> Fill out the registration form above to secure your spot in the hackathon
+                    </div>
+                </li>
+                <li>
+                    <span class="step-icon">💡</span>
+                    <div>
+                        <strong>Submit Proposal:</strong> Complete the project submission form with your innovative AI-integrated geospatial solution
+                    </div>
+                </li>
+                <li>
+                    <span class="step-icon">🧠</span>
+                    <div>
+                        <strong>Brainstorm:</strong> How will you integrate Geospatial Tools and AI into a compelling project?
+                    </div>
+                </li>
+                <li>
+                    <span class="step-icon">👥</span>
+                    <div>
+                        <strong>Form Teams:</strong> Connect with other participants and form your hackathon team
+                    </div>
+                </li>
+                <li>
+                    <span class="step-icon">🚀</span>
+                    <div>
+                        <strong>Get Ready:</strong> Prepare your development environment and start researching your chosen theme
+                    </div>
+                </li>
+            </ul>
+        </section>
+
+        <footer class="footer">
+            <div class="footer-title">— Connect with G-DEV DEKUT —</div>
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/g-dev-dekut-5689a2384/" target="_blank" rel="noopener noreferrer" class="social-link">
+                    <span class="social-icon">💼</span>
+                    LinkedIn
+                </a>
+                <a href="https://www.youtube.com/@G-DEVDEKUT" target="_blank" rel="noopener noreferrer" class="social-link">
+                    <span class="social-icon">📺</span>
+                    YouTube
+                </a>
+                <a href="https://x.com/GeospatialDev" target="_blank" rel="noopener noreferrer" class="social-link">
+                    <span class="social-icon">🐦</span>
+                    Twitter/X
+                </a>
+                <a href="mailto:gdevdekut@gmail.com" class="social-link">
+                    <span class="social-icon">📧</span>
+                    Email
+                </a>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // Smooth scrolling for better UX
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add smooth scroll behavior
+            document.documentElement.style.scrollBehavior = 'smooth';
+            
+            // Add loading animation for iframe
+            const iframe = document.querySelector('iframe');
+            if (iframe) {
+                iframe.addEventListener('load', function() {
+                    console.log('Google Form loaded successfully');
+                });
+            }
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'98666472e07a1380',t:'MTc1OTA5NTU1NS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
